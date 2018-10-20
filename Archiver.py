@@ -1,6 +1,11 @@
 import sys 
 import os
 
+#
+# header[0]  header[1]  data
+# FileName | FileSize | FILE
+#
+
 def criarArchive(nomeArchive):
 	with open(nomeArchive, 'wb') as archive:
 		print('Create Archiver')
@@ -39,7 +44,7 @@ def extractFile(nome, nomeArchive):
 			archive.seek(pos, 0)
 		archive.close()
 
-def listarArchive(nomeArchive):
+def listarArchive(nomeArchive):#SEEK SEQUENCIAL
 	with open(nomeArchive, 'rb') as archive:
 		pos = 0
 		archive.seek(0, 0)
@@ -96,7 +101,9 @@ remove    [-r]    ‹archive.arq›     ‹arq›
 '''
 	try:
 		opr = sys.argv[1]
-		if (opr == '-c'):
+		if (opr == '--help'):
+			print(_help_)
+		elif (opr == '-c'):
 			i = 3
 			criarArchive(sys.argv[2])
 			while i < len(sys.argv):
