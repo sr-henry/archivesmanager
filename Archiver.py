@@ -8,8 +8,8 @@ def criarArchive(nomeArchive):
 
 def addFile(nome, nomeArchive):
 	with open(nomeArchive, 'ab+') as archive:
-		arqPath = open(nome, 'rb')
-		data = arqPath.read()
+		file = open(nome, 'rb')
+		data = file.read()
 		header = nome+'|'+str(len(data))+'|'
 		archive.write(header.encode())
 		archive.write(data)
@@ -22,11 +22,11 @@ def extractFile(nome, nomeArchive):
 		archive.seek(0, 0)
 		while True:
 			data = archive.read() 	
-			header = data.split(b'|')	
+			header = data.split(b'|')
 			if (header[0].decode() == nome):
 				archive.seek(pos, 0)
 				data = archive.read()
-				header = (data).split(b'|')
+				header = data.split(b'|')
 				pos += len(header[0].decode()) + len(header[1].decode()) + 2
 				archive.seek(pos, 0)
 				data = archive.read(int(header[1].decode()))
@@ -98,6 +98,7 @@ remove    [-r]    ‹archive.arq›     ‹arq›
 		opr = sys.argv[1]
 		if (opr == '-c'):
 			i = 3
+			criarArchive(sys.argv[2])
 			while i < len(sys.argv):
 				file = sys.argv[i]
 				print(file)
@@ -111,7 +112,8 @@ remove    [-r]    ‹archive.arq›     ‹arq›
 			extractFile(sys.argv[3], sys.argv[2])
 		elif (opr == '-r'):
 			deleteFile(sys.argv[3], sys.argv[2])
-	except:
+	except Exception as erro:
+		print('>> ' + str(erro))
 		print(_help_)
 
 defaultManager()
