@@ -6,11 +6,13 @@ armazenado [1]. Um arquivador (archiver) é um programa que permite criar e modi
 como extrair arquivos de um archive.</p>
 <p>Nesse contexto, a tarefa deste projeto é fazer um arquivador que funcione em modo texto (Prompt do
 Windows ou terminal do Linux) e que implemente os seguintes casos de uso:
-    – C1. Criar um archive com base em uma lista de arquivos informados.
-    – C2. Inserir um arquivo em um archive já criado.
-    – C3. Listar os nomes dos arquivos armazenados em um archive.
-    – C4. Extrair um arquivo de um archive, dado o nome do arquivo (sem remover esse arquivo de dentro do archive).
-    – C5. Remover um arquivo de um archive, dado o nome do arquivo.
+<ul>
+    <li>– C1. Criar um archive com base em uma lista de arquivos informados.</li>
+    <li>– C2. Inserir um arquivo em um archive já criado.</li>
+    <li>– C3. Listar os nomes dos arquivos armazenados em um archive.</li>
+    <li>– C4. Extrair um arquivo de um archive, dado o nome do arquivo (sem remover esse arquivo de dentro do archive).</li>
+    <li>– C5. Remover um arquivo de um archive, dado o nome do arquivo.</li>
+</ul>
 </p>
 <h3>Os comandos do arquivador devem ser:</h3>
 <p>
